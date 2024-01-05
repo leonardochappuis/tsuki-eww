@@ -1,7 +1,7 @@
 local json = require "scripts.json"
 
-local client_id = "YOUR_CLIENT_ID"
-local client_secret = "YOUR_SECRET"
+local client_id = "b97e3a26e5f34d9c832ec64754b3ed89"
+local client_secret = "29eb94dfccf8440fb4e7444c8f307d22"
 local access_token = ''
 
 local searchUrl = "https://api.spotify.com/v1/search"

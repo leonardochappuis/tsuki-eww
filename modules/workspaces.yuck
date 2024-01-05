@@ -5,6 +5,7 @@
   (box :class "workspaces-widget"
     (for i in workspace0
       (button
+        :visible "${i.name != 'special'}"
         :onclick "hyprctl dispatch workspace ${i.id}"
         :class "${i.class}"
         (label :class "workspace" :text "[${i.name}]")
