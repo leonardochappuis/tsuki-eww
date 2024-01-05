@@ -1,5 +1,5 @@
-local key = "1dc807cd6b126cc687706039ef54ab3f"
-local id = "3452925"
+local key = "YOUR_KEY"
+local id = "CITY_ID"
 local unit = "metric"
 local json = require "scripts.json"
 
