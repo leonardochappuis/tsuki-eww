@@ -1,0 +1,45 @@
+(defwidget bar0 []
+  (centerbox :class "main-bar" :orientation "h" 
+
+      (box :orientation "h" :space-evenly false :halign "start" :spacing "10"
+        (day_info)
+        (monitor)
+        (workspaces0)
+      )
+
+      (box :orientation "h" :space-evenly false
+        (active_window :monitor "0")
+      )
+
+      (box :orientation "h" :space-evenly false :halign "end"
+          (box :class "right-bar-widget" :space-evenly false
+            (spotify)
+            (audio_control)
+          )
+          (box :class "tray-power-widget" :space-evenly false
+            (systray)
+            (update)
+            (power_menu)
+          )
+      )
+
+  )
+)
+(defwidget bar1 []
+  (centerbox :class "main-bar" :orientation "h" 
+
+      (box :orientation "h" :space-evenly false :halign "start" :spacing "10"
+        (workspaces1)
+      )
+
+      (box :orientation "h" :space-evenly false
+        (active_window :monitor "1")
+      )
+      (box)
+  )
+)
+; (defwidget bar []
+;   (box :class "bar" :orientation "h"
+;     (spotify)
+;   )
+; )

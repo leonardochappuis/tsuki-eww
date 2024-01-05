@@ -1,0 +1,7 @@
+(defwidget power_menu []
+  (box :class "power-menu" :space-evenly "false"
+    (button :onclick "~/.config/hypr/scripts/Wlogout.sh"
+      (label :text "⏻ " :class "power-text")
+    )
+  )
+)

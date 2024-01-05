@@ -1,0 +1,55 @@
+.res_circle {
+	background-color: white;
+	border: 0px solid #161616;
+	border-radius: 100%;
+	padding: 0px;
+  margin-right:10px;
+}
+
+.res_circle_small {
+	background-color: colors.$background;
+	border: 0px solid black;
+	border-radius: 100%;
+	padding: 24px;
+}
+
+.res_text {
+  color: colors.$tertiary;
+  @include theme.shadow(colors.$tertiary);
+	font-weight : bold;
+}
+
+.res_cpu {
+	color: colors.$primary;
+  @include theme.shadow(colors.$primary);
+  font-weight : bold;
+  font-size: 14px;
+  min-width: 20px;
+  margin-right: 3px;
+  min-width: 30px;
+}
+.res_cpu_text {
+  color: colors.$primary;
+  @include theme.shadow(colors.$primary);
+  font-weight : bold;
+  font-size: 13px;
+}
+.res_mem_text {
+  color: colors.$tertiary;
+  @include theme.shadow(colors.$tertiary);
+  font-weight : bold;
+  font-size: 14px;
+}
+.res_mem {
+	color: colors.$tertiary;
+  @include theme.shadow(colors.$tertiary);
+  font-weight : bold;
+  font-size: 14px;
+  min-width: 30px;
+}
+
+.res_disk {
+	color: colors.$quad;
+  @include theme.shadow(colors.$primary);
+  font-weight : bold;
+}

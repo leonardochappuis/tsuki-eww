@@ -1,0 +1,12 @@
+.clock {
+  margin-bottom: 2px;
+  font-weight: bold;
+  color: colors.$secondary;
+  @include theme.shadow(colors.$secondary);
+}
+
+.date {
+  @extend .clock;
+  font-size: 12px;
+  margin-bottom: 0px;
+}

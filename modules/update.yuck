@@ -1,0 +1,12 @@
+(defpoll update_info :initial "0" :interval "1m" `checkupdates | wc -l`)
+
+(defwidget update []
+  (box
+    (button :class "update" :onclick "kitty -T update paru -Syu && notify-send 'The system has been updated'" :visible "${update_info > 0}"
+      (box :space-evenly "false" :orientation "h"
+        (label :text " " :class "update-icon" :halign "start")
+        (label :text "${update_info} Updates Available" :class "update-text")
+      )
+    )
+  )
+)

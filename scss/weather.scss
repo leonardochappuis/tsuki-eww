@@ -1,0 +1,6 @@
+.weather-text {
+  font-weight:bold;
+  font-size: 14px;
+  color: colors.$quad;
+  @include theme.shadow(colors.$quad);
+}

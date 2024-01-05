@@ -1,0 +1,72 @@
+.spotify {
+  margin-right: 4px;
+}
+
+.album-cover {
+  min-width: 28px;
+  min-height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 4px;
+  border-radius: theme.$border;
+}
+
+.seekbar scale trough highlight {
+  background-color: colors.$secondary;
+  color: black;
+  border-radius: theme.$border;
+}
+
+.song-info {
+  margin-right: 4px;
+}
+
+.seekbar scale trough {
+  background-color: colors.$background-light;
+  border-radius: theme.$border;
+  min-height: 4px;
+  min-width: 150px;
+}
+
+.artist-name {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.song-name {
+  @include theme.shadow(colors.$primary);
+  font-weight: bold;
+  font-size: 12px;
+  color: colors.$primary;
+}
+
+.seek-time {
+  font-size: 10px;
+  margin-left:2px;
+  margin-right:2px;
+  font-weight: bold;
+  color: colors.$background-light;
+}
+
+.control {
+  font-size: 18px;
+  color: colors.$background-light;
+  @include theme.shadow(colors.$background-light);
+}
+
+.spotify-button-text {
+  padding-top: 2px;
+  margin-right: 4px;
+  color: colors.$primary;
+  font-weight: bold;
+  @include theme.shadow(colors.$primary);
+}
+
+.play-button {
+  font-size:24px;
+  color: colors.$primary;
+  margin-right: 9px;
+  margin-left:1px;
+  @include theme.shadow(colors.$primary);
+}

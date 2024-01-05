@@ -1,0 +1,36 @@
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :width "100%"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive "true"
+  :namespace "eww"
+  (bar0)
+)
+
+(defwindow bar1
+  :monitor 1
+  :geometry (geometry
+    :width "100%"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive "true"
+  :namespace "eww"
+  (bar1)
+)
+
+(defwindow spotify
+  :monitor 0
+  :geometry (geometry
+    :x "127"
+    :y "0"
+    :anchor "top right"
+  )
+  :namespace "eww"
+  :exclusive "true"
+  :focusable "true"
+  (spotify_window)
+)

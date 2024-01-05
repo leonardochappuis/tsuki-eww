@@ -1,0 +1,24 @@
+@use "scss/colors.scss" as colors;
+@use "scss/theme.scss" as theme;
+*{
+	all: unset;
+  font-family: "04b03";
+
+  min-height: 0;
+  font-size: 98%;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+@import "scss/bar.scss";
+@import "scss/widget.scss";
+@import "scss/spotify.scss";
+@import "scss/clock.scss";
+@import "scss/window.scss";
+@import "scss/workspaces.scss";
+@import "scss/audio_control.scss";
+@import "scss/monitor.scss";
+@import "scss/tray.scss";
+@import "scss/power_menu.scss";
+@import "scss/weather.scss";
+@import "scss/update.scss";
+@import "scss/spotify_window.scss";

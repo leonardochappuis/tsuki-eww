@@ -1,0 +1,103 @@
+.spotify-window-box {
+  border: 2px solid colors.$primary;
+  background: colors.$background-dark;
+  padding: 8px;
+}
+
+.spotify-search-input {
+  border: 2px solid colors.$quad;
+  min-width:500px;
+}
+
+.category-text {
+  background: colors.$background-dark;
+  margin-right:2px;
+  color: colors.$tertiary;
+  @include theme.shadow(colors.$tertiary);
+  margin-top: -17px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.library {
+  margin-top: 8px;
+  color: colors.$background-light;
+  @include theme.shadow(colors.$background-light);
+  padding: 8px;
+  border: 1px solid colors.$background-light;
+  min-height: 52px;
+  min-width:100px;
+}
+
+.selected {
+  font-weight: bold;
+  background: rgba(100,100,100,1);
+}
+
+.playlists {
+  border: 1px solid colors.$background-light;
+  min-height: 640px;
+  min-width:100px;
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.results {
+  margin-top: 8px;
+}
+
+.result-section {
+  min-height:234px;
+}
+
+.result-section2 {
+  margin-top: 8px;
+}
+
+.result-box {
+  padding: 8px;
+  border: 1px solid colors.$background-light;
+  min-width: 200px;
+}
+
+.result-box2 {
+  padding: 8px;
+  border: 1px solid colors.$background-light;
+  min-width: 200px;
+  margin-left: 8px;
+}
+
+.regular-text {
+  color: colors.$background-light;
+  @include theme.shadow(colors.$background-light);
+}
+
+.close {
+  color: colors.$primary;
+  @include theme.shadow(colors.$primary);
+  font-weight: bold;
+  font-size:18px;
+}
+
+.spotify-searching-box {
+  min-width:416px;
+}
+
+.spotify-searching-text {
+  color: colors.$primary;
+  @include theme.shadow(colors.$primary);
+  font-weight: bold;
+  font-size:24px;
+}
+
+.spotify-image {
+  min-width:30px;
+  min-height:30px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-right: 4px;
+  border: 1px solid colors.$border;
+  border-radius: theme.$border;
+}

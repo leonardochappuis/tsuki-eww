@@ -1,0 +1,11 @@
+.active-window {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.window-title {
+  font-size: 14px;
+  font-family: "Gaiatype";
+  color: colors.$quad;
+  @include theme.shadow(colors.$quad);
+  font-weight: bold;
+}

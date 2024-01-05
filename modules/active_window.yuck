@@ -1,0 +1,8 @@
+(deflisten windows :initial "[{\"title\": \"\"},{\"title\": \"\"}]"
+  `lua scripts/active_window.lua`)
+
+(defwidget active_window [monitor]
+  (box :class "${windows['${monitor}'].title == '' ? '' : 'bar-widget active-window'}"
+    (label :text "${windows['${monitor}'].title}" :class "window-title")
+  )
+)

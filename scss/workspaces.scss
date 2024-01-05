@@ -1,0 +1,23 @@
+.workspace-button {
+  color: colors.$secondary;
+  @include theme.shadow(colors.$secondary);
+  margin-left:4px;
+  margin-right:4px;
+}
+.w3 {
+
+}
+.workspace-active {
+  color: colors.$primary;
+  @include theme.shadow(colors.$primary);
+}
+
+.wa3 {
+
+}
+
+.workspace {
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Gaiatype"
+}

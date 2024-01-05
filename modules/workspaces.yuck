@@ -1,0 +1,26 @@
+(deflisten workspace0 :initial "[]" "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+(deflisten workspace1 :initial "[]" "hyprland-workspaces `hyprctl monitors -j | jq -r \".[1].name\"`")
+
+(defwidget workspaces0 []
+  (box :class "workspaces-widget"
+    (for i in workspace0
+      (button
+        :onclick "hyprctl dispatch workspace ${i.id}"
+        :class "${i.class}"
+        (label :class "workspace" :text "[${i.name}]")
+      )
+    )
+  )
+)
+
+(defwidget workspaces1 []
+  (box :class "workspaces-widget"
+    (for i in workspace1
+      (button
+        :onclick "hyprctl dispatch workspace ${i.id}"
+        :class "${i.class}"
+        (label :class "workspace" :text "[${i.name}]")
+      )
+    )
+  )
+)

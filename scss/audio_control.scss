@@ -1,0 +1,20 @@
+.audio-control {
+  padding-top:4px;
+  margin-left: 8px;
+  margin-right:4px;
+}
+
+.volume-text {
+  margin-left: 2px;
+  min-width:40px;
+  color: colors.$tertiary;
+  font-weight: bold;
+  @include theme.shadow(colors.$tertiary);
+}
+
+.volume-icon {
+  padding-bottom:3px;
+  color: colors.$tertiary;
+  font-weight: bold;
+  @include theme.shadow(colors.$tertiary);
+}

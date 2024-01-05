@@ -1,0 +1,51 @@
+(deflisten foo :initial "whatever"
+  `lua scripts/spotify.lua`)
+
+(defvar music_reveal false)
+
+(defvar eww "eww -c $HOME/.config/eww")
+(defwidget spotify []
+  (eventbox :onhover "${eww} update music_reveal=true"
+    :onrightclick "${eww} open spotify"
+    :onhoverlost "${eww} update music_reveal=false"
+    (box :class "spotify" :hexpand true :vexpand true
+      (box :visible { foo != "whatever" && foo.status != "None" } :space-evenly false :hexpand true :spacing "5"
+        (box :style "background-image: url('${foo == 'whatever' ? 'images/icons/music/play.svg': foo.art}');" :class "album-cover")
+        (box :space-evenly false :orientation "v" :class "song-info"
+          (label :class "song-name" :text { foo == "whatever" ? "" : foo.song_name } :halign "start")
+          (box
+            :orientation "h"
+            :class "seekbar"
+            :space-evenly false
+            :halign "center"
+            (label :text {foo == "whatever" ? "" : foo.position} :class "seek-time")
+            (scale :class "warning"
+              :min 0
+              :max 100
+              :value {foo == "whatever" ? 0 : (foo.percentage != "null" ? foo.percentage : 0) }
+              :onchange "playerctl position `awk 'BEGIN { printf \"%.2f\n\", ({} / 100) * ${foo == 'whatever' ? 0 : foo.total_duration} }'`"
+            )
+            (label :text {foo == "whatever" ? "" : foo.duration} :class "seek-time")
+          )
+        )
+        (box :spacing "7" :space-evenly "false"
+          (button :onclick "playerctl previous --player spotify" :class "control"
+            (label :text "󰼨")
+          )
+          (button :onclick "playerctl play-pause --player spotify"
+            (label :text {foo == "whatever" ? "": foo.status == "Paused" ? "" : "󰏦"} :class "play-button")
+          )
+          (button :onclick "playerctl next --player spotify" :class "control"
+            (label :text "󰼧")
+          )
+        )
+      )
+      (button :visible { foo == "whatever" || foo.status == "None"} :onclick "./scripts/open_spotify.sh &"
+        (box :space-evenly false
+          (label :text "Spotify" :class "spotify-button-text")
+          (image :path "images/icons/music/spotify.svg" :image-width "20")
+        )  
+      )
+    )
+  )
+)

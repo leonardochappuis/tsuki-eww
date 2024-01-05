@@ -1,0 +1,43 @@
+;; **
+;; ** Widgets config for EWW
+;; ** Created by : @adi1090x
+;; **
+
+(defpoll CPU_USAGE :interval "1s" `scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `scripts/sys_info --mem`)
+; (defpoll DISK_USAGE :interval "1s" `scripts/sys_info --disk`)
+
+(defwidget monitor [] 
+  (box :orientation "h" :class "resources-widget"
+    (box :orientation "h" :valign "center" :halign "center" :spacing 4 :space-evenly "false"
+      (label :class "res_cpu_text" :valign "end" :halign "center" :text "  CPU")
+      (label :class "res_cpu" :valign "end" :halign "center" :text "${CPU_USAGE}%")
+      ; (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+      ;   (circular-progress :class "res_cpu" :value CPU_USAGE :thickness 5
+      ;     (label :class "res_circle_small" :text "CPU")
+      ;   )
+      ; )
+      ; (label :class "res_text" :valign "end" :halign "center" :text "${CPU_USAGE}%")
+    )
+    (box :orientation "h" :valign "center" :halign "center" :spacing 4 :space-evenly "false"
+      (label :class "res_mem_text" :valign "end" :halign "center" :text "󰍛 MEM")
+      (label :class "res_mem" :valign "end" :halign "center" :text "${MEM_USAGE}%")
+
+      ; (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+      ;   (circular-progress :class "res_mem" :value MEM_USAGE :thickness 5
+      ;     (label :class "res_circle_small" :text "MEMORY")
+      ;   )
+      ; )
+      ; (label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%")
+    )
+    ; (box :orientation "v" :valign "center" :halign "center" :spacing 5 :space-evenly "false"
+    ;   (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
+    ;     (circular-progress :class "res_disk" :value DISK_USAGE :thickness 5
+    ;       (label :class "res_circle_small" :text "DISK")
+    ;     )
+    ;   )
+    ;   (label :class "res_text" :valign "end" :halign "center" :text "${DISK_USAGE}%")
+    ; )
+  )
+)
+

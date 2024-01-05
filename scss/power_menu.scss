@@ -1,0 +1,9 @@
+.power-menu {
+  margin-left: 12px;
+}
+.power-text {
+  color: colors.$primary;
+  font-weight: bold;
+  @include theme.shadow(colors.$primary);
+  font-size:18px;
+}

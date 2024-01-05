@@ -1,0 +1,6 @@
+(defwidget clock []
+  (box :orientation "v" :space-evenly "false"
+    (label :halign "start" :class "clock" :text "  ${formattime(EWW_TIME, "%I:%M %p")}")
+    (label :class "date" :valign "end" :text {formattime(EWW_TIME, "%A, %b %d")})
+  )
+)

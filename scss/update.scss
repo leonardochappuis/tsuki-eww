@@ -1,0 +1,18 @@
+.update {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.update-text {
+  color: colors.$secondary;
+  font-weight: bold;
+  @include theme.shadow(colors.$secondary);
+  padding-top:3px;
+}
+.update-icon {
+  color: colors.$secondary;
+  font-weight: bold;
+  font-size:18px;
+  margin-right: 4px;
+  @include theme.shadow(colors.$secondary);
+}

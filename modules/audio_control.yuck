@@ -1,0 +1,18 @@
+(defpoll volume :initial "{\"volume\":{}}" :interval "0.1s" "lua scripts/volume.lua get")
+
+(defwidget audio_control []
+  (box :space-evenly "false" :class "audio-control"
+    (eventbox :onclick "lua scripts/volume.lua toggle" :onscroll "lua scripts/volume.lua set {}" :onrightclick "pavucontrol &"
+      (box :space-evenly "false"
+        (label :text "${volume.muted ? '' : volume.volumeIcon}" :class "volume-icon")
+        (label :text "${volume.volume + '%'}" :class "volume-text")
+      )
+    )
+    (eventbox :onclick "lua scripts/volume.lua toggle mic" :class "audio-control" :onscroll "lua scripts/volume.lua set {} mic" :onrightclick "pavucontrol &"
+      (box :space-evenly "false"
+        (label :text "${volume.micMuted ? '' : volume.micVolumeIcon}" :class "volume-icon")
+        (label :text "${volume.micVolume + '%'}" :class "volume-text")
+      )
+    )
+  )
+)

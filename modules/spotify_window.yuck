@@ -1,0 +1,98 @@
+(defvar selected_category "search")
+
+(defvar spotify_search_results "")
+(defvar spotify_search_results_artists "")
+(defvar spotify_search_results_albums "")
+(defvar spotify_search_results_playlists "")
+
+(defvar spotify_searching "false")
+
+(defwidget spotify_window []
+  (box :class "spotify-window-box" :orientation "v" :space-evenly "false"
+    (box :space-evenly "false" :spacing "8" :halign "start"
+      (input :class "spotify-search-input" :onaccept "${eww} update selected_category='search' && lua scripts/spotify_window.lua search '{}' &")
+      (button :onclick "${eww} close spotify"
+        (label :halign "center" :text "󰅚 Close" :class "close regular-text")
+      )
+    )
+    (box :space-evenly "false"
+      ; (box :space-evenly "false" :orientation "v" :class "left-side"
+      ;   (box :class "library" :spacing "8" :space-evenly "false" :orientation "v"
+      ;     (label :text "Library" :halign "center" :class "category-text")
+      ;     (button :halign "start" :class "${selected_category == 'made_for_you' ? 'selected' : ''}" :onclick "${eww} update selected_category='made_for_you'"
+      ;       (label :text "Made for you")
+      ;     )
+      ;     (button :halign "start" :class "${selected_category == 'recently_played' ? 'selected' : ''}" :onclick "${eww} update selected_category='recently_played'"
+      ;       (label :text "Recently Played")
+      ;     )
+      ;     (button :halign "start" :class "${selected_category == 'liked_songs' ? 'selected' : ''}" :onclick "${eww} update selected_category='liked_songs'"
+      ;       (label :text "Liked Songs")
+      ;     )
+      ;     (button :halign "start" :class "${selected_category == 'albums' ? 'selected' : ''}" :onclick "${eww} update selected_category='albums'"
+      ;       (label :text "Albums")
+      ;     )
+      ;     (button :halign "start" :class "${selected_category == 'artists' ? 'selected' : ''}" :onclick "${eww} update selected_category='artists'"
+      ;       (label :text "Artists")
+      ;     )
+      ;     (button :halign "start" :class "${selected_category == 'podcasts' ? 'selected' : ''}" :onclick "${eww} update selected_category='podcasts'"
+      ;       (label :text "Podcasts")
+      ;     )
+      ;   )
+      ;   (box :class "playlists" :spacing "8" :space-evenly "false" :orientation "v"
+      ;     (label :text "Your Playlists" :halign "center" :class "category-text")
+      ;   )
+      ; )
+      (box :space-evenly "false" :orientation "v" :class "results" :visible "${spotify_search_results != '' && spotify_searching == 'false'}"
+        (box :space-evenly "false" :orientation "h" :class "result-section"
+          (box :space-evenly "false" :orientation "v" :class "result-box" :spacing "4"
+            (label :text "Songs" :halign "center" :class "category-text")
+            (for i in "${spotify_search_results}"
+              (button :onclick "./scripts/play_spotify.sh ./scripts/open_spotify.sh ${i.uri} &"
+                (box :spacing "8" :space-evenly "false"
+                  (label :text "${i.artists[0].name} - ${i.name}" :halign "start" :class "regular-text")
+                )
+              )
+            )
+          )
+          (box :space-evenly "false" :orientation "v" :class "result-box2" :spacing "4"
+            (label :text "Artists" :halign "center" :class "category-text")
+            (for i in "${spotify_search_results_artists}"
+              (button :onclick "./scripts/play_spotify.sh ./scripts/open_spotify.sh ${i.uri} &"
+                (box :spacing "8" :space-evenly "false"
+                  (box :style "background-image: url('${i.images[0].url}');" :class "spotify-image")
+                  (label :text "${i.name}" :halign "start" :class "regular-text")
+                )
+              )
+            )
+          )
+        )
+        (box :space-evenly "false" :orientation "h" :class "result-section result-section2"
+          (box :space-evenly "false" :orientation "v" :class "result-box" :spacing "4"
+            (label :text "Albums" :halign "center" :class "category-text")
+            (for i in "${spotify_search_results_albums}"
+              (button :onclick "./scripts/play_spotify.sh ./scripts/open_spotify.sh ${i.uri} &"
+                (box :spacing "8" :space-evenly "false"
+                  (label :text "${i.artists[0].name} - ${i.name}" :halign "start" :class "regular-text")
+                )
+              )
+            )
+          )
+          (box :space-evenly "false" :orientation "v" :class "result-box2" :spacing "4"
+            (label :text "Playlists" :halign "center" :class "category-text")
+            (for i in "${spotify_search_results_playlists}"
+              (button :onclick "./scripts/play_spotify.sh ./scripts/open_spotify.sh ${i.uri} &"
+                (box :spacing "8" :space-evenly "false"
+                  (box :style "background-image: url('${i.images[0].url}');" :class "spotify-image")
+                  (label :text "${i.name}" :halign "start" :class "regular-text")
+                )
+              )
+            )
+          )
+        )
+      )
+      (box :space-evenly "false" :orientation "v" :valign "center" :halign "center" :class "spotify-searching-box" :visible "${spotify_searching == 'true'}"
+        (label :text "Searching..." :class "spotify-searching-text")
+      )
+    )
+  )
+)

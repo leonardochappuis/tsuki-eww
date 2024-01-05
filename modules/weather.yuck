@@ -1,0 +1,8 @@
+(defpoll weather_info :interval "15m" `lua scripts/weather.lua`)
+
+(defwidget weather []
+  (box :class "weather" :space-evenly "false"
+    (image :path "images/icons/weather/${weather_info.weather[0].icon}.png" :image-width "30")
+    (label :text "${weather_info.main.temp}°C" :class "weather-text")
+  )
+)
